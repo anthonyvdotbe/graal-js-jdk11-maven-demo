@@ -144,7 +144,7 @@ public class App {
         ScriptEngine nashornEngine = new ScriptEngineManager().getEngineByName("nashorn");
         if (nashornEngine == null) {
             System.out.println("*** Nashorn not found ***");
-            return 0;
+            return (Runtime.version().feature() >= 15) ? Long.MAX_VALUE : 0;
         } else {
             return benchScriptEngineIntl(nashornEngine);
         }
